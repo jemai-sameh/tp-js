@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+Write a JavaScript program to convert a comma-separated values (CSV)
+string to a 2D array of objects. The first row of the string is used as the title
+row
+*/
+      const convert = (data, delimiter) => {
+        const titles = data.slice(0, data.indexOf("\n")).split(delimiter);
+        const titleValues = data.slice(data.indexOf("\n") + 1).split("\n");
+        console.log(titles);
+        console.log(titleValues);
+        const array = titleValues.map((value) => {
+          console.log(value);
+          const values = value.split(delimiter);
+          console.log(values);
+          const keyValue = titles.reduce((object, title, index) => {
+            object[title] = values[index];
+            return object;
+          }, {});
+          console.log(keyValue);
+          return keyValue;
+        });
+        return array;
+      };
+
+      var input = "FirstName, LastName\nSameh,jemai\nFerdaws ,ksiksi";
+      console.log(convert(input, ","));
+    </script>
+  </body>
+</html>

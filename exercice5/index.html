@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+ Write a JavaScript program to convert an array of objects to a
+comma-separated values (CSV) string that contains only the columns
+specified
+*/
+
+      const convert = (data) => {
+        let string = [];
+        let keys = Object.keys(data[0]);
+        string.push(keys.join(","));
+        data.forEach((element) =>
+          string.push("%", Object.values(element).join(","))
+        );
+        return string.toString();
+      };
+
+      const data = [
+        {
+          firstname: "sameh",
+          lastname: "jemai",
+          age: 23,
+        },
+        {
+          firstname: "ferdaws",
+          lastname: "ksiksi",
+          age: 22,
+        },
+      ];
+
+      console.log(convert(data));
+    </script>
+  </body>
+</html>
