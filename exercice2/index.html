@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+    <style>
+      button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <table class="table">
+        <thead>
+          <th colspan="3" style="text-align: center;">
+            citations de motivation
+          </th>
+
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <cite id="cite1"
+                >« Vis comme si tu devais mourir demain, apprends comme si tu
+                devais vivre toujours. »
+              </cite>
+              <br />
+              Gandhi
+            </td>
+            <td>
+              <button onclick="copy(1)">
+                <img src="/images/icons8-copie-30.png" alt="" srcset="" />
+              </button>
+            </td>
+            <td rowspan="4">         
+                <textarea id="texte" placeholder="Saisissez du texte ici" disabled style="height: 500px;width: 400px; border: 1px blue solid;"></textarea><br />
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <cite id="cite2">
+                « Le succès n'est pas final, l'échec n'est pas fatal. C'est le
+                courage de continuer qui compte.»
+              </cite>
+              <br />
+              Winston Churchill
+            </td>
+            <td>
+              <button onclick="copy(2)">
+                <img src="/images/icons8-copie-30.png" alt="" srcset="" />
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <cite id="cite3">
+                « Tout est possible à qui rêve, ose, travaille et n'abandonne
+                jamais. »
+              </cite>
+              <br />
+              Xavier Dolan
+            </td>
+            <td>
+              <button onclick="copy(3)">
+                <img src="/images/icons8-copie-30.png" alt="" srcset="" />
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <cite id="cite4">
+                « Je ne perds jamais. Soit je gagne, soit j'apprends. »
+              </cite>
+              <br />
+              Nelson Mandela
+            </td>
+            <td>
+              <button onclick="copy(4)">
+                <img src="/images/icons8-copie-30.png" alt="" srcset="" />
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script>
+      /*
+
+Write a JavaScript program to copy a string to the clipboard
+
+*/
+
+
+      const copy = (id) => {
+        let text = document.getElementById("cite"+id).innerHTML;
+        navigator.clipboard.writeText(text);
+
+        let textarea=document.getElementById("texte")
+        navigator.clipboard.readText().then(text=>{textarea.value=text})
+       
+
+      };
+    </script>
+  </body>
+</html>
